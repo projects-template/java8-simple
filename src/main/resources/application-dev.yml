@@ -36,8 +36,4 @@ mybatis-plus:
 # 日志文件配置
 logging:
   config: classpath:logback-console.xml
-
-jwt:
-  secret: DuEnDAamAZCwkAT9Rvig
-  # 30天有效期
-  expirationDay: 30
+  # config: classpath:logback-spring.xml
