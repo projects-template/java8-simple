@@ -6,6 +6,7 @@
     <!--按天生成日志-->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--     生成路径       -->
             <fileNamePattern>logs/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>1GB</maxFileSize>
             <maxHistory>25</maxHistory>
