@@ -1,0 +1,72 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/cz_edu?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: fshing
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  redis:
+    host: 192.168.31.227
+    database: 8
+    port: 6379
+
+
+mybatis-plus:
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    # 开启sql日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 该配置就是将带有下划线的表字段映射为驼峰格式的实体类属性
+    map-underscore-to-camel-case: true
+
+# 日志文件配置
+logging:
+  config: classpath:logback-console.xml
+
+edu:
+  static:
+    delayHour: 1
+    baseUrl: https://eduadmin-test.xmwefun.com
+
+jwt:
+  secret: DuEnDAamAZCwkAT9Rvig
+  # 30天有效期
+  expirationDay: 30
+wx:
+  mp:
+    appid: wx0e04562f5c65f9bd
+    secret: 64d2d2c9ae2db5350863d06e389e7192
+  miniapp:
+    appid: wxfe58c9c2b66d377a
+    secret: 3a495da5a3cebcb52d812a6e48d483a9
+    token: qXNm6gnfoaa1X5MqYdrt
+    aesKey: 9PJ6DE1YF7x6SD2Kg3f0M1z4JoSK80FdjGP1qd3gRex
+    msgDataFormat: JSON
+  pay:
+    # 服务商关联Appid，用于为商户支付时使用
+    appId: wx0e04562f5c65f9bd
+    # 服务商商户号
+    mchId: 1636158219
+    # APIV2 Key
+    v2Key: iCBaGB7xd8M56UfI1Vo9ai1qrUuSDEnn
+    # APIV3 Key
+    v3Key: iEnOiFFzhTgmJ08DdCiDRuEis546zsLE
+
+    # 服务商证书
+    p12Path: classpath:/cert/pay_cert.p12
+    keyPath: classpath:/cert/pay_key.pem
+    certPath: classpath:/cert/pay_cert.pem
+    # 支付通知回调地址
+    notifyUrl: https://eduapi-test.xmwefun.com/api/wx/notify/pay/order/%s
+    refundNotifyUrl: https://eduapi-test.xmwefun.com/api/wx/notify/pay/refund/%s
+
+protocol:
+  userPath: /home/edu/file/protocol/user.txt
+  privacyPath: /home/edu/file/protocol/privacy.txt
